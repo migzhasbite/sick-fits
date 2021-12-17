@@ -1,5 +1,3 @@
-function sellPage() {
-	return <div></div>;
+export default function sellPage() {
+	return <div>Hello</div>;
 }
-
-export default sellPage;

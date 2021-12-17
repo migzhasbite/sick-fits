@@ -1,3 +1,9 @@
-export default function index() {
-	return <div>Hello</div>;
+import Page from "../components/Page";
+
+export default function IndexPage() {
+	return (
+		<>
+			<div>GoodBye</div>
+		</>
+	);
 }
