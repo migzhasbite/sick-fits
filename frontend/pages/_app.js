@@ -1,7 +1,7 @@
 import Page from "../components/Page";
 import Router from "next/router";
 import NProgress from "nprogress";
-import "../styles/nprogress.css";
+import "../components/styles/nprogress.css";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
