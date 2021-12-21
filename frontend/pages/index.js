@@ -1,9 +1,1 @@
-import Page from "../components/Page";
-
-export default function IndexPage() {
-	return (
-		<>
-			<div>GoodBye</div>
-		</>
-	);
-}
+export {default} from "./products";

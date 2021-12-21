@@ -146,11 +146,19 @@ input UsersCreateInput {
   data: UserCreateInput
 }
 
+input ProductImageRelateToOneInput {
+  create: ProductImageCreateInput
+  connect: ProductImageWhereUniqueInput
+  disconnect: ProductImageWhereUniqueInput
+  disconnectAll: Boolean
+}
+
 """ A keystone list """
 type Product {
   id: ID!
   name: String
   description: String
+  photo: ProductImage
   status: String
   price: Int
 }
@@ -198,6 +206,8 @@ input ProductWhereInput {
   description_not_ends_with_i: String
   description_in: [String]
   description_not_in: [String]
+  photo: ProductImageWhereInput
+  photo_is_null: Boolean
   status: String
   status_not: String
   status_contains: String
@@ -237,6 +247,8 @@ enum SortProductsBy {
   name_DESC
   description_ASC
   description_DESC
+  photo_ASC
+  photo_DESC
   status_ASC
   status_DESC
   price_ASC
@@ -246,6 +258,7 @@ enum SortProductsBy {
 input ProductUpdateInput {
   name: String
   description: String
+  photo: ProductImageRelateToOneInput
   status: String
   price: Int
 }
@@ -258,6 +271,7 @@ input ProductsUpdateInput {
 input ProductCreateInput {
   name: String
   description: String
+  photo: ProductImageRelateToOneInput
   status: String
   price: Int
 }
@@ -315,11 +329,19 @@ input CloudinaryImageFormat {
   transformation: String
 }
 
+input ProductRelateToOneInput {
+  create: ProductCreateInput
+  connect: ProductWhereUniqueInput
+  disconnect: ProductWhereUniqueInput
+  disconnectAll: Boolean
+}
+
 """ A keystone list """
 type ProductImage {
   id: ID!
   image: CloudinaryImage_File
-  althTest: String
+  altText: String
+  product: Product
 }
 
 input ProductImageWhereInput {
@@ -333,24 +355,26 @@ input ProductImageWhereInput {
   image_not: String
   image_in: [String]
   image_not_in: [String]
-  althTest: String
-  althTest_not: String
-  althTest_contains: String
-  althTest_not_contains: String
-  althTest_starts_with: String
-  althTest_not_starts_with: String
-  althTest_ends_with: String
-  althTest_not_ends_with: String
-  althTest_i: String
-  althTest_not_i: String
-  althTest_contains_i: String
-  althTest_not_contains_i: String
-  althTest_starts_with_i: String
-  althTest_not_starts_with_i: String
-  althTest_ends_with_i: String
-  althTest_not_ends_with_i: String
-  althTest_in: [String]
-  althTest_not_in: [String]
+  altText: String
+  altText_not: String
+  altText_contains: String
+  altText_not_contains: String
+  altText_starts_with: String
+  altText_not_starts_with: String
+  altText_ends_with: String
+  altText_not_ends_with: String
+  altText_i: String
+  altText_not_i: String
+  altText_contains_i: String
+  altText_not_contains_i: String
+  altText_starts_with_i: String
+  altText_not_starts_with_i: String
+  altText_ends_with_i: String
+  altText_not_ends_with_i: String
+  altText_in: [String]
+  altText_not_in: [String]
+  product: ProductWhereInput
+  product_is_null: Boolean
 }
 
 input ProductImageWhereUniqueInput {
@@ -360,13 +384,16 @@ input ProductImageWhereUniqueInput {
 enum SortProductImagesBy {
   id_ASC
   id_DESC
-  althTest_ASC
-  althTest_DESC
+  altText_ASC
+  altText_DESC
+  product_ASC
+  product_DESC
 }
 
 input ProductImageUpdateInput {
   image: Upload
-  althTest: String
+  altText: String
+  product: ProductRelateToOneInput
 }
 
 input ProductImagesUpdateInput {
@@ -376,7 +403,8 @@ input ProductImagesUpdateInput {
 
 input ProductImageCreateInput {
   image: Upload
-  althTest: String
+  altText: String
+  product: ProductRelateToOneInput
 }
 
 input ProductImagesCreateInput {

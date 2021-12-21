@@ -30,6 +30,7 @@ function createClient({ headers, initialState }) {
         headers,
       }),
     ]),
+    //stored memory in the browser
     cache: new InMemoryCache({
       typePolicies: {
         Query: {
@@ -39,6 +40,7 @@ function createClient({ headers, initialState }) {
           },
         },
       },
+      //restore initial state if available
     }).restore(initialState || {}),
   });
 }
