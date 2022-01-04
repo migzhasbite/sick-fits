@@ -11,7 +11,7 @@ export default function useForm(initial = {}) {
 
         }
         if (type ==='file'){
-            [value] = files
+            [value] = e.target.files
         }
         setInputs({
             //copy existing state
