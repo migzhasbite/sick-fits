@@ -1,5 +1,4 @@
-import gql from "graphql-tag";
-import { useQuery } from "@apollo/client";
+import { useQuery, gql } from "@apollo/client";
 import styled from "styled-components";
 import Product from "./Product";
 import {perPage} from '../config'

@@ -1,5 +1,4 @@
-import gql from "graphql-tag";
-import { useQuery } from "@apollo/client";
+import { useQuery, gql } from "@apollo/client";
 
 export const CURRENT_USER_QUERY = gql`
 	query {
