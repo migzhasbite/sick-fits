@@ -27,7 +27,7 @@ export default function paginationField() {
 			//if there are items, return from cache, not network
 			if (items.length) {
 				console.log(
-					`There are ${items.length} items in the cache ! Gonna send them to Apollo`
+					// `There are ${items.length} items in the cache ! Gonna send them to Apollo`
 				);
 				return items;
 			}
