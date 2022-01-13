@@ -71,7 +71,7 @@ async function checkout(
 			payment_method: token,
 		})
 		.catch((err) => {
-			console.log(err);
+			// console.log(err);
 			throw new Error(err.message);
 		});
 	// console.log(charge);

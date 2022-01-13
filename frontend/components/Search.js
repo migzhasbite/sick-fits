@@ -69,7 +69,7 @@ export default function Search() {
 						type: "search",
 						placeholder: "Search for an item",
 						id: "search",
-						className: loading ? "loading" : "",
+						className: loading ? "loading" : null,
 					})}
 				/>
 			</div>
@@ -77,8 +77,8 @@ export default function Search() {
 				{isOpen &&
 					items.map((item, index) => (
 						<DropDownItem
+						{...getItemProps({ item, index })}
 							key={item.id}
-							{...getItemProps({ item, index })}
 							highlighted={index === highlightedIndex}
 						>
 							<img
